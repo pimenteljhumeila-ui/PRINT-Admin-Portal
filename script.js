@@ -10,5 +10,5 @@ document.getElementById('updateDetail').addEventListener('click',()=>toast('Orde
 document.querySelectorAll('.save-prices').forEach(btn=>btn.addEventListener('click',()=>toast('Price changes saved (demo only).')));
 function toast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 document.getElementById('globalSearch').addEventListener('input',e=>{const q=e.target.value.toLowerCase();if(!q)return;showPage('orders');document.querySelectorAll('#ordersTable tbody tr').forEach(row=>row.style.display=row.innerText.toLowerCase().includes(q)?'':'none');});
-function clock(){document.getElementById('clock').textContent=new Date().toLocaleString('en-PH',{hour:'2-digit',minute:'2-digit',dateStyle:'short'});}
+function clock(){document.getElementById('clock').textContent=new Date().toLocaleString('en-PH',{hour:'2-digit',minute:'2-digit',month:'short',day:'numeric'});}
 clock();setInterval(clock,30000);
