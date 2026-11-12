@@ -321,3 +321,22 @@
     box-sizing: border-box !important;
   }
 }
+@media (max-width: 560px) {
+  .login-screen .login-art {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding: 76px 16px 24px !important;
+    gap: 12px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+  .login-screen .login-art > * {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
