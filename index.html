@@ -6,6 +6,25 @@
 </head>
 <body>
 <section id="loginScreen" class="login-screen">
+  <header class="login-bar">
+  <a class="login-bar-brand" href="#">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="9" rx="2"/><path d="M6 14h12v7H6z"/></svg>
+    <span>PRINT</span>
+  </a>
+  <div class="login-bar-icons">
+    <button type="button" class="login-bar-btn" aria-label="Notifications">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+    </button>
+    <button type="button" class="login-bar-btn" aria-label="Menu" onclick="document.getElementById('loginMenu').classList.toggle('open')">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="login-bar-menu" id="loginMenu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+</header>
   <div class="login-art">
     <div class="print-logo"><strong>PRINT</strong><small>Admin Portal</small></div>
     <div class="printer" aria-label="Printer illustration"><div class="printer-top"><div></div></div><div class="printer-body"><span class="printer-light"></span><div class="paper"><i></i><i></i><i></i></div></div></div>
