@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRINT | Admin Portal</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="loginScreen" class="login-screen">
+  <div class="login-art">
+    <div class="print-logo"><strong>PRINT</strong><small>Admin Portal</small></div>
+    <div class="printer" aria-label="Printer illustration"><div class="printer-top"><div></div></div><div class="printer-body"><span class="printer-light"></span><div class="paper"><i></i><i></i><i></i></div></div></div>
+  </div>
+  <div class="login-side">
+    <form class="login-card" id="loginForm"><h2>Admin Login</h2><p>Sign in to manage printing orders</p>
+      <label>Username<input id="username" placeholder="Enter your username" required></label>
+      <label>Password<div class="password-wrap"><input id="password" type="password" placeholder="Enter your password" required><button type="button" id="togglePassword" aria-label="Show password">◉</button></div></label>
+      <button class="solid-btn login-submit">Login</button><small>Authorized administrators only</small>
+      <div class="demo-note">Demo login: any username and password</div>
+    </form>
+  </div>
+</section>
+
+<div id="app" class="app hidden">
+  <header class="topnav">
+    <a class="brand" href="#" data-page="dashboard"><span class="brand-icon">▣</span> PRINT</a>
+    <nav>
+      <button data-page="dashboard">⌂ <span>HOME</span></button>
+      <button data-page="orders">▤ <span>ORDERS</span></button>
+      <button data-page="priceHome">◇ <span>PRICE LIST</span></button>
+      <button data-page="service">▱ <span>SERVICE</span></button>
+      <button data-page="history">◷ <span>HISTORY</span></button>
+      <button id="logout">⏻ <span>LOGOUT</span></button>
+    </nav>
+  </header>
+  <div class="search-strip"><label>⌕ <input id="globalSearch" placeholder="Search by order ID or name..."></label></div>
+  <main>
+    <section class="page active" id="dashboard">
+      <div class="center-heading"><h1>HELLO, ADMIN!</h1><p>Overview of your printing business</p></div>
+      <div class="dashboard-shell">
+        <div class="status-grid">
+          <article><b>COMPLETED</b><strong>2</strong></article><article><b>PROCESSING</b><strong>2</strong></article><article><b>READY FOR PICK-UP</b><strong>0</strong></article><article><b>OUT FOR DELIVERY</b><strong>0</strong></article>
+        </div>
+        <div class="activity-grid">
+          <article class="white-card"><h3>RECENT ORDERS</h3><div class="activity"><b>▣</b><span><strong>Order PR-0003/PR-0004 uploaded</strong><small>2 files attached</small></span><time>09:12 AM</time></div></article>
+          <article class="white-card"><h3>RECENT ACTIVITIES</h3><div class="activity"><b>▣</b><span><strong>Order PR-0003/PR-0004 uploaded</strong><small>2 files attached</small></span><time>09:12 AM</time></div><div class="activity"><b>▱</b><span><strong>PR-0002 marked as delivered</strong><small>Courier: Brian Jeric Paragas</small></span><time>09:40 AM</time></div><div class="activity"><b>▱</b><span><strong>PR-0001 marked as delivered</strong><small>Courier: Marzcel Lopez</small></span><time>02:15 PM</time></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="orders">
+      <div class="page-heading"><h1>ORDER MANAGEMENT</h1><p>View and manage all printing orders</p></div>
+      <div class="filters"><select id="orderStatus"><option value="All">All Status</option><option>Completed</option><option>Pending</option><option>Processing</option></select><input type="date" aria-label="Date range"></div>
+      <div class="table-frame"><div class="table-card"><table id="ordersTable"><thead><tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Status</th><th>Total</th><th>Action</th></tr></thead><tbody>
+        <tr data-status="Completed"><td>PR-0001</td><td>Customer Name</td><td>Oct 05, 2026</td><td class="green-text">Completed</td><td>₱640.00</td><td><button class="eye-btn" data-order="PR-0001">⊙</button></td></tr>
+        <tr data-status="Completed"><td>PR-0002</td><td>Customer Name</td><td>Oct 20, 2026</td><td class="green-text">Completed</td><td>₱10.00</td><td><button class="eye-btn" data-order="PR-0002">⊙</button></td></tr>
+        <tr data-status="Pending"><td>PR-0003</td><td>Customer Name</td><td>Oct 28, 2026</td><td class="green-text">Pending</td><td>₱10.00</td><td><button class="eye-btn" data-order="PR-0003">⊙</button></td></tr>
+        <tr data-status="Pending"><td>PR-0004</td><td>Customer Name</td><td>Oct 28, 2026</td><td class="green-text">Pending</td><td>₱110.00</td><td><button class="eye-btn" data-order="PR-0004">⊙</button></td></tr>
+      </tbody></table><div class="table-bottom"><b id="resultCount">Showing 4 of 4 results</b><div class="pagination">‹ <b>1</b> 2 3 … ›</div></div></div></div>
+    </section>
+
+    <section class="page" id="priceHome">
+      <div class="page-heading"><h1>PRICE LIST MANAGEMENT</h1><p>Manage paper sizes, print rates and add-on fees</p></div>
+      <div class="category-wrap"><div class="category-card"><button data-page="documentPrice">DOCUMENT PRINTING</button><button data-page="photoPrice">PHOTO PRINTING</button><button data-page="tarpPrice">TARPAULIN PRINTING</button></div></div>
+    </section>
+
+    <section class="page" id="service">
+      <div class="page-heading"><h1>TRACK ORDERS</h1><p>Monitor and manage the status of customer orders</p></div>
+      <div class="tracking-banner"><div class="tracking-meta"><b>ORDER #PR-0003/PR-0004</b><b>Order Date: October 28, 2026</b><b>Processing</b></div><div class="steps"><div class="step done"><i>●</i><b>Order Received</b><small>Oct. 28, 2026 - 10:24 am</small></div><div class="step current"><i>●</i><b>Printing</b><small>In Progress</small></div><div class="step"><i>○</i><b>Ready</b><small>Pending</small></div><div class="step"><i>○</i><b>Out for Delivery</b><small>Pending</small></div><div class="step"><i>○</i><b>Delivered</b><small>Pending</small></div></div></div>
+      <div class="info-columns"><article class="info-panel"><h3>DELIVERY / PICKUP DETAILS</h3><div class="info-box"><small>Method</small><b>Delivery</b></div><div class="info-box"><small>Address</small><b>Villasis, Pangasinan</b></div><div class="info-box"><small>Rider</small><b>Brian Jeric Paragas</b></div></article><article class="info-panel"><h3>ORDER INFORMATION</h3><div class="info-box"><small>Order ID: PR-0003/PR-0004</small><b>Customer: Dorelei Ashley Corpuz</b></div><div class="info-box"><b>Total: ₱140.00</b><b>Payment: UNPAID</b></div><div class="info-box"><b>Items: 24 pages</b><b>Paper: A4</b></div></article></div>
+    </section>
+
+    <section class="page" id="history">
+      <div class="page-heading"><h1>TRANSACTION HISTORY</h1><p>Review completed orders and transactions</p></div><div class="history-filter"><input type="date" aria-label="Date range"></div>
+      <div class="table-frame"><div class="table-card"><table><thead><tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Order</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody>
+        <tr><td>PR-0001</td><td>Customer Name</td><td>Oct 05, 2026</td><td>Tarpaulin</td><td>₱640.00</td><td class="green-text">Completed</td><td>⊙　↓</td></tr>
+        <tr><td>PR-0002</td><td>Customer Name</td><td>Oct 20, 2026</td><td>Photo</td><td>₱30.00</td><td class="green-text">Completed</td><td>⊙　↓</td></tr>
+        <tr><td>PR-0003</td><td>Customer Name</td><td>Oct 28, 2026</td><td>Document</td><td>₱10.00</td><td class="green-text">Pending</td><td>⊙　↓</td></tr>
+        <tr><td>PR-0004</td><td>Customer Name</td><td>Oct 28, 2026</td><td>Document</td><td>₱110.00</td><td class="green-text">Pending</td><td>⊙　↓</td></tr>
+      </tbody></table><div class="table-bottom"><b>Showing 4 of 4 results</b><div class="pagination">‹ <b>1</b> 2 3 … ›</div></div></div></div>
+    </section>
+
+    <section class="page" id="orderDetail">
+      <div class="detail-title"><h1>ORDER DETAILS</h1><span class="pending-label">PENDING</span></div>
+      <div class="detail-grid">
+        <article class="detail-card"><h3>Customer Information</h3><p>♙　<small>Customer</small><b>Customer Full Name</b></p><p>♧　<small>Phone</small><b>0917 123 4567</b></p><p>⌖　<small>Address</small><b>Customer Address</b></p></article>
+        <article class="detail-card"><h3>Uploaded Files</h3><p>▤　<b>UED-MIDTERM-MODULES.pdf</b><small>2.4 MB · 22 pages</small></p><p>▤　<b>CORPUZ_LAB5.docx</b><small>2.4 MB · 50 pages</small></p><div class="file-actions"><button>VIEW</button><button class="solid-btn">DOWNLOAD</button></div></article>
+        <article class="detail-card"><h3>Printing Details</h3><p><span>Service</span><b>Document Printing</b></p><p><span>Paper Size</span><b>A4</b></p><p><span>Print Type</span><b>Black & White</b></p><p><span>Copies</span><b>1</b></p><p><span>Pages</span><b>22</b></p></article>
+        <article class="detail-card"><h3>Delivery/Pick-up</h3><p><small>Delivery method</small><b>Store Pickup</b></p><p><small>Pickup location</small><b>PRINT — Pangasinan Branch</b></p><p><small>Estimated pickup</small><b>October 28, 2026 · 11:00 PM</b></p></article>
+        <article class="detail-card"><h3>Payment Method</h3><p><span>Payment Method</span><b>Cash</b></p><p><span>Amount Paid</span><b>₱140.00</b></p><p><span>Status</span><b>Unpaid</b></p></article>
+        <article class="detail-card"><h3>Other Printing Preferences</h3><p><b>1　UED-MIDTERM-MODULES.pdf</b><span>⊙</span></p><p><b>2　CORPUZ_LAB5.docx</b><span>⊙</span></p></article>
+        <article class="detail-card status-card"><h3>Order Status</h3><select id="detailStatus"><option>Pending</option><option>Processing</option><option>Ready</option><option>Out for Delivery</option><option>Delivered</option></select><button class="solid-btn" id="updateDetail">UPDATE</button></article>
+      </div><div class="back-row"><button class="outline-btn" data-page="orders">Back</button></div>
+    </section>
+
+    <section class="page price-edit" id="documentPrice">
+      <div class="page-heading"><h1>Document Printing Price List</h1><p>Paper size and price per page</p></div>
+      <div class="document-layout"><div class="document-price-area">
+        <div class="price-column"><h3>TEXT ONLY</h3><h4>BLACK & WHITE</h4><p>SHORT <b>₱3.00</b></p><p>A4 <b>₱4.00</b></p><p>LONG <b>₱5.00</b></p><p>B2B <b>+₱2.00</b></p><h4>PARTIALLY COLORED</h4><p>SHORT <b>₱4.00</b></p><p>A4 <b>₱5.00</b></p><p>LONG <b>₱6.00</b></p><p>B2B <b>+₱3.00</b></p><h4>FULL COLORED</h4><p>SHORT <b>₱7.00</b></p><p>A4 <b>₱7.00</b></p><p>LONG <b>₱8.00</b></p><p>B2B <b>+₱4.00</b></p></div>
+        <div class="price-column"><h3>TEXT WITH IMAGE</h3><h4>BLACK & WHITE</h4><p>SHORT <b>₱5.00</b></p><p>A4 <b>₱6.00</b></p><p>LONG <b>₱7.00</b></p><p>B2B <b>+₱2.00</b></p><h4>PARTIALLY COLORED</h4><p>SHORT <b>₱6.00</b></p><p>A4 <b>₱7.00</b></p><p>LONG <b>₱8.00</b></p><p>B2B <b>+₱3.00</b></p><h4>FULL COLORED</h4><p>SHORT <b>₱9.00</b></p><p>A4 <b>₱9.00</b></p><p>LONG <b>₱10.00</b></p><p>B2B <b>+₱4.00</b></p></div>
+        <div class="price-column"><h3>IMAGE ONLY</h3><h4>BLACK & WHITE</h4><p>SHORT <b>₱5.00</b></p><p>A4 <b>₱6.00</b></p><p>LONG <b>₱7.00</b></p><p>B2B <b>+₱3.00</b></p><h4>PARTIALLY COLORED</h4><p>SHORT <b>₱8.00</b></p><p>A4 <b>₱9.00</b></p><p>LONG <b>₱10.00</b></p><p>B2B <b>+₱5.00</b></p><h4>FULL COLORED</h4><p>SHORT <b>₱10.00</b></p><p>A4 <b>₱12.00</b></p><p>LONG <b>₱15.00</b></p><p>B2B <b>+₱7.00</b></p></div>
+      </div><aside class="extras"><div><h3>SPECIAL PAPER</h3><p>BLACK & WHITE　₱25.00</p><p>COLORED　₱35.00</p><p>BACK-TO-BACK　+₱10.00</p></div><div><h3>VELLUM BOARD</h3><p>BLACK & WHITE　₱25.00</p><p>COLORED　₱35.00</p><p>BACK-TO-BACK　+₱10.00</p></div><div><h3>QUALITY</h3><p>BETTER　₱25.00　　 BEST　₱35.00</p></div></aside></div>
+      <div class="save-row"><button class="outline-btn" data-page="priceHome">Back</button><button class="solid-btn save-prices">SAVE CHANGES</button></div>
+    </section>
+
+    <section class="page price-edit" id="photoPrice">
+      <div class="page-heading"><h1>Photo Printing Price List</h1><p>Photo size and package price</p></div>
+      <div class="photo-layout"><div class="photo-packages"><h3>PACKAGES</h3><div class="package-columns"><div><h4>PACKAGE 1</h4><p>8pcs 1x1 <b>₱25.00</b></p><hr><h4>PACKAGE 2</h4><p>4pcs 2x2 <b>₱35.00</b></p><hr><h4>PACKAGE 3</h4><p>5pcs Passport Size <b>₱25.00</b></p></div><div><h4>PACKAGE 4</h4><p>2pcs 2x2, 1x1, Passport Size <b>₱40.00</b></p><div class="photo-squares">▦ ▦ ▦ ▦</div><hr><h4>PACKAGE 5</h4><p>3pcs Passport Size, 4pcs 1x1 <b>₱40.00</b></p><div class="photo-squares">▦ ▦ ▦ ▦</div></div></div></div>
+      <div class="wallet-card"><h3>WALLET SIZE / 2R</h3><p>(2.5 x 3.5 in)<b>₱7.00</b></p><div class="size-grid"><p>3R<br><small>(3.5 x 5 in)</small><b>₱10.00</b></p><p>4R<br><small>(4 x 6 in)</small><b>₱15.00</b></p><p>5R<br><small>(5 x 7 in)</small><b>₱25.00</b></p><p>6R<br><small>(6 x 8 in)</small><b>₱30.00</b></p><p>8R<br><small>(8 x 10 in)</small><b>₱45.00</b></p><p>A4<br><small>(8 x 12 in)</small><b>₱50.00</b></p></div><p>CUTE SIZE <b>₱5.00</b></p></div><div class="quality-card"><h3>QUALITY</h3><p>BETTER　₱25.00</p><p>BEST　₱35.00</p></div></div>
+      <div class="save-row"><button class="outline-btn" data-page="priceHome">Back</button><button class="solid-btn save-prices">SAVE CHANGES</button></div>
+    </section>
+
+    <section class="page price-edit" id="tarpPrice">
+      <div class="page-heading"><h1>Tarpaulin Printing Price List</h1><p>Price by tarpaulin dimensions</p></div>
+      <div class="tarp-frame"><h3>TARPAULIN SIZES</h3><div class="tarp-columns"><div><p>2 × 3 ft <b>₱120</b></p><p>3 × 3 ft <b>₱180</b></p><p>3 × 4 ft <b>₱240</b></p><p>3 × 5 ft <b>₱300</b></p><p>3 × 6 ft <b>₱360</b></p></div><div><p>4 × 4 ft <b>₱320</b></p><p>4 × 5 ft <b>₱400</b></p><p>4 × 6 ft <b>₱480</b></p><p>4 × 7 ft <b>₱560</b></p><p>4 × 8 ft <b>₱640</b></p></div><div><p>6 × 6 ft <b>₱720</b></p><p>6 × 7 ft <b>₱840</b></p><p>6 × 8 ft <b>₱960</b></p></div></div></div>
+      <div class="save-row"><button class="outline-btn" data-page="priceHome">Back</button><button class="solid-btn save-prices">SAVE CHANGES</button></div>
+    </section>
+  </main>
+  <footer><span>28°C　Sunny</span><span id="clock"></span></footer>
+</div>
+<div id="toast" class="toast">Changes saved (demo only).</div>
+<script src="script.js"></script>
+</body></html>
