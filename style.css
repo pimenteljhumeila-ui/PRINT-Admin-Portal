@@ -111,3 +111,23 @@
     box-sizing: border-box !important;
   }
 }
+@media (min-width: 851px) {
+  .topnav {
+    height: 64px !important;
+  }
+  .topnav nav {
+    gap: 26px !important;
+  }
+  .topnav nav button {
+    font-size: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .topnav nav button span {
+    display: inline !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+  }
+}
