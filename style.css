@@ -314,3 +314,10 @@
     font-size: 22px;
   }
 }
+@media (max-width: 560px) {
+  .login-screen .login-art {
+    padding-top: 70px !important;
+    min-height: calc(35vh + 56px) !important;
+    box-sizing: border-box !important;
+  }
+}
