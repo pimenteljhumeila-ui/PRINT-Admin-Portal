@@ -97,3 +97,17 @@
     outline: 0 !important;
   }
 }
+@media (max-width: 850px) {
+  .app .search-strip {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 10px 16px !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+  .app .search-strip label {
+    height: 42px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
