@@ -45,3 +45,29 @@
     gap: 14px;
   }
 }
+@media (max-width: 560px) {
+  .app .topnav nav button {
+    font-size: 20px !important;
+    min-height: 52px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+  }
+  .app .topnav nav button span {
+    display: block !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+  .app .activity-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+    align-items: start !important;
+  }
+  .app .activity-grid .white-card {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+}
